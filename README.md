@@ -24,3 +24,9 @@ npm run test
 ```
 npm run lint
 ```
+
+1. 无限滚动加载
+2. vue 通过directive自定义指令去除字符
+3. el-table 树形结构
+4. 聊天窗口
+
