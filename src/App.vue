@@ -1,35 +1,62 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <linput></linput>
-    <fold-table></fold-table>
-    <chat></chat>
+    <div class="tabs">
+      <el-menu :default-active="$route.path" 
+                class="el-menu-demo" 
+                mode="horizontal" 
+                router
+      >
+        <el-menu-item 
+            v-for="(route,index) in routes" 
+            :key="index" 
+            :index="route.path"
+            :class="$route.path==route.path?'is-active':''"
+        >{{route.name}}</el-menu-item>
+      </el-menu>
+    </div>
+    <div class="router-wrapper">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Linput from './components/l-input.vue'
-import FoldTable from './components/foldtable.vue'
-import chat from './components/chat.vue'
+//路由表
+import routes from './router/routes'
+
 
 
 export default {
   name: 'app',
+  data() {
+    return {
+      activeIndex: '/',
+      routes
+    }
+  },
   components: {
-    HelloWorld,
-    Linput,
-    FoldTable,
-    chat
   }
 }
 </script>
 <style lang="stylus">
+html,body 
+  padding 0
+  margin 0
+a 
+  text-decoration none 
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
+  background-color #f5f5f5
+  overflow hidden
+.tabs
+  margin 10px 0
+.router-wrapper 
+  margin 0 40px
+  padding 20px
+  border 1px solid #eee
+  background-color #fff
 </style>
