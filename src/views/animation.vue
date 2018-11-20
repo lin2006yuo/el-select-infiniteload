@@ -110,11 +110,22 @@
         </div>
     </div>
     <div class="line"></div>
+    <!-- 动画七 -->
+    <anime7></anime7>
+    <div class="line"></div>
+    <anime8></anime8>
  </div>
 </template>
 
 <script type="text/ecmascript-6">
 import animations from 'create-keyframe-animation'
+import Anime7 from '@/components/anime/anime7'
+import Anime8 from '@/components/anime/anime8'
+
+
+
+import {TweenMax, Power2, TweenLite} from "gsap";
+
 import anime from 'animejs'
 const sliderMinX = 0
 const sliderMaxX = 240
@@ -173,7 +184,8 @@ export default {
         }
     },
     components: {
-
+        Anime7,
+        Anime8
     },
     methods: {
         randomIndex: function () {
@@ -315,7 +327,6 @@ export default {
 
 <style scoped lang="stylus">
 .aniamtion {
-    height 600px
 }
 .custom-appear-active{
     color: blue;
