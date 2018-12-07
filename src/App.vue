@@ -11,7 +11,7 @@
             :key="index" 
             :index="route.path"
             :class="$route.path==route.path?'is-active':''"
-        >{{route.name}}</el-menu-item>
+        >{{route.cname}}</el-menu-item>
       </el-menu>
     </div>
     <div class="router-wrapper">
@@ -38,7 +38,7 @@ export default {
   }
 }
 </script>
-<style lang="stylus">
+<style scoped lang="stylus">
 html,body 
   padding 0
   margin 0
@@ -48,7 +48,6 @@ a
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  text-align center
   color #2c3e50
   background-color #f5f5f5
   overflow hidden
