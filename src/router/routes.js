@@ -1,14 +1,18 @@
 
 
-const  routes = [
+const routes = [
     {
         path: '/',
         component: () => import('@/views/zha'),
         cname: '杂',
-        name: 'mixin'
+        name: 'mixin',
+        beforeEnter: (to, from, next) => {
+            console.log({ to, from })
+            next()
+        }
     },
     {
-        path: '/animation',
+        path: '/animation#123',
         component: () => import('@/views/animation'),
         cname: '动画',
         name: 'animation'
@@ -93,10 +97,22 @@ const  routes = [
         name: 'login'
     },
     {
+        path: '/company',
+        component: () => import('@/views/company'),
+        cname: '公司测试',
+        name: 'company'
+    },
+    {
         path: '*',
         cname: '404',
         name: '404',
         component: () => import('@/views/login')
+    },
+    {
+        path: '/vnode',
+        cname: 'vnode',
+        name: 'vnode',
+        component: () => import('@/views/vnode')
     }
 ]
 

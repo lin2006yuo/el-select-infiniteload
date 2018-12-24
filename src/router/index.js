@@ -1,18 +1,22 @@
-import VueRouter from  'vue-router'
+import VueRouter from 'vue-router'
 import Vue from 'vue'
 import iView from 'iview'
-import routes  from './routes'
+import routes from './routes'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-    routes,
-    mode: 'history'
+  routes,
+  mode: 'history'
+  // scrollBehavior (to, from, savedPosition) {
+  //     // return 期望滚动到哪个的位置
+  //     return {x:0, y: 200}
+  //   }
 })
 
 router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start()
-    next()
+  iView.LoadingBar.start()
+  next()
 })
 
 // const LOGIN_PAGE_NAME = 'login'
@@ -41,9 +45,13 @@ router.beforeEach((to, from, next) => {
 //     }
 // })
 
+router.beforeEach((to, from, next) => {
+  next()
+})
+
 router.afterEach(to => {
-    iView.LoadingBar.finish()
-    window.scrollTo(0,0)
+  iView.LoadingBar.finish()
+  window.scrollTo(0, 0)
 })
 
 export default router

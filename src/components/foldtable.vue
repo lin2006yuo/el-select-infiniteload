@@ -54,7 +54,7 @@
                 align="center"
                 width="100"
                 label="操作">
-                <template slot-scope="">
+                <template slot-scope="scope">
                     <el-button type="text">编辑</el-button>
                     <el-button type="text">删除</el-button>
                 </template>

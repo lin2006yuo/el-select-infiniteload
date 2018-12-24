@@ -1,6 +1,5 @@
 <template>
-  <div class="">
-    vuex
+  <div class>vuex
     <!-- <p>appName: {{appName}}</p> -->
     <p>userName: {{userName}}</p>
     <button @click="handleClick">修改userName</button>
@@ -9,21 +8,20 @@
 
 <script type="text/ecmascript-6">
 // 1.
-import {mapState, mapMutations} from 'vuex'
+import { mapState, mapMutations } from "vuex";
 // 2.
 // import {createNamespacedHelpers} from 'vuex'
 // const {mapState} = createNamespacedHelpers('user')
 
-export default { 
+export default {
   components: {},
   computed: {
-    ...mapState('user',[
-      // appName: state => state.appName
-      'userName',
-    ])
+    ...mapState({
+      userName: state => state.user.userName
+    })
     // 2.
     // ...mapState({
-    //   appName: state => state.appName, 
+    //   appName: state => state.appName,
     //   userName: state => state.userName
     // })
     // 3.
@@ -38,11 +36,9 @@ export default {
     return {};
   },
   methods: {
-    ...mapMutations('user', [
-      'SET_USERNAME'
-    ]),
+    ...mapMutations("user", ["SET_USERNAME"]),
     handleClick() {
-      this.SET_USERNAME()
+      this.SET_USERNAME();
     }
   }
 };

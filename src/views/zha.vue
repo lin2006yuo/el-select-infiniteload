@@ -8,11 +8,10 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
-import Linput from '@/components/l-input.vue'
-import FoldTable from '@/components/foldtable.vue'
-import chat from '@/components/chat.vue'
-
+import HelloWorld from "@/components/HelloWorld.vue";
+import Linput from "@/components/l-input.vue";
+import FoldTable from "@/components/foldtable.vue";
+import chat from "@/components/chat.vue";
 
 export default {
   components: {
@@ -20,8 +19,17 @@ export default {
     Linput,
     FoldTable,
     chat
+  },
+  permission: {
+    name
+  },
+  refresh() {
+    console.log("refresh");
+  },
+  mounted() {
+    console.log({ option: this.$options.permission });
   }
-}
+};
 </script>
 <style lang="stylus" scoped>
 </style>
