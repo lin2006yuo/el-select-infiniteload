@@ -61,14 +61,14 @@ export default {
   },
   methods: {
     setInnitValue() {
-      let initValueList = {}
-      let rules = {}
-      let valueList = {}
-      let errorStorage = {}
+      let initValueList = {};
+      let rules = {};
+      let valueList = {};
+      let errorStorage = {};
       this.list.forEach(item => {
         rules[item.name] = item.rules,
-        valueList[item.name] = item.value
-        initValueList[item.name] = item.value
+        valueList[item.name] = item.value;
+        initValueList[item.name] = item.value;
         errorStorage[item.name] = ''
       })
       this.rules = rules

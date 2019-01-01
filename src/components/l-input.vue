@@ -3,7 +3,6 @@
         <el-input type="text"
             v-model="value" 
             v-int
-            @change="value = value.length === 1 ? value.replace(/[^1-9]/g, '') : value.replace(/\D/g, '')"
         ></el-input>
     </div>
 </template>
