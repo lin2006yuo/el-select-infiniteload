@@ -5,12 +5,17 @@
           <split-pane :value.sync="offset"></split-pane>
       </div>
       <p>ElementUI</p>
+<<<<<<< HEAD
       <el-input v-range.number="{max: 8, min: 0}" ref="input1"  :value="num1" @keyup.native="handleInput"></el-input>
       <el-input v-range.number="{max: 8, min: 0}" ref="input2"  :value="num2" @keyup.native="handleInput"></el-input>
+=======
+      <el-input v-range.number="{max: 8, min: 0}" @keyup.native="handleInput(2, $event)" :value="num1"></el-input>
+      <el-input v-range.number="{max: 8, min: 0}" @keyup.native="handleInput2(2, $event)" :value="num2"></el-input>
+>>>>>>> bcaf53dd93bbbbbeeeb79f4fd9280c25ab226948
       <!-- <p>原生</p>
       <input ref="input1" type="text" :value="c_num1" @keyup="handleKeyup" @input="hanleRawInput">
       <input ref="input2" type="text" :value="num2" @keyup="handleKeyup"> -->
-      num1: {{num1}}
+      num1: {{num1}}<br>
       num2: {{num2}}
   </div>
 </template>
@@ -22,19 +27,15 @@ export default {
     directives: {
         range: {
             bind(el, binding) {
-                console.log(binding.modifiers)
                 const {max, min} = binding.value
-                const INPUT_DOM = el.querySelector('input')
+                const INPUT_DOM = el.querySelector('input');
                 const handleInput = (e) => {
                     if(binding.modifiers.number) {
-                        INPUT_DOM.value = INPUT_DOM.value.replace(/[^1-9]/g, "")
+                        INPUT_DOM.value = INPUT_DOM.value.replace(/[^0-9]/g, "")
                     }
                     if(INPUT_DOM.value > max) {
-                        console.log('大于')
-                        INPUT_DOM.value = 8
-                        console.log(INPUT_DOM.value)
+                        INPUT_DOM.value = 8;
                     } else if(INPUT_DOM.value < min) {
-                        console.log('小于')
                         INPUT_DOM.value = 0
                     }
                 }
@@ -47,8 +48,9 @@ export default {
   },
   data() {
     return {
+        max: 8,
         offset: 0.8,
-        num1: 1,
+        num1: 0,
         num2: 2,
         sum: 8
     };
@@ -59,11 +61,22 @@ export default {
       }
   },
   methods: {
-      handleInput(e) {
+      handleInput(max,e) {
          this.$nextTick(() => {
+<<<<<<< HEAD
             this.num1 = e.target.value
              this.num2 = this.sum - e.target.value
+=======
+            this.num1 = e.target.value;
+            this.num2 = max - e.target.value;
+>>>>>>> bcaf53dd93bbbbbeeeb79f4fd9280c25ab226948
          })
+      },
+      handleInput2(max,e) {
+          this.$nextTick(() => {
+              this.num2 = e.target.value;
+              this.num1 = max - e.target.value;
+          })
       }
   }
 };
