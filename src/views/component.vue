@@ -5,13 +5,8 @@
           <split-pane :value.sync="offset"></split-pane>
       </div>
       <p>ElementUI</p>
-<<<<<<< HEAD
       <el-input v-range.number="{max: 8, min: 0}" ref="input1"  :value="num1" @keyup.native="handleInput"></el-input>
       <el-input v-range.number="{max: 8, min: 0}" ref="input2"  :value="num2" @keyup.native="handleInput"></el-input>
-=======
-      <el-input v-range.number="{max: 8, min: 0}" @keyup.native="handleInput(2, $event)" :value="num1"></el-input>
-      <el-input v-range.number="{max: 8, min: 0}" @keyup.native="handleInput2(2, $event)" :value="num2"></el-input>
->>>>>>> bcaf53dd93bbbbbeeeb79f4fd9280c25ab226948
       <!-- <p>原生</p>
       <input ref="input1" type="text" :value="c_num1" @keyup="handleKeyup" @input="hanleRawInput">
       <input ref="input2" type="text" :value="num2" @keyup="handleKeyup"> -->
@@ -63,13 +58,8 @@ export default {
   methods: {
       handleInput(max,e) {
          this.$nextTick(() => {
-<<<<<<< HEAD
             this.num1 = e.target.value
              this.num2 = this.sum - e.target.value
-=======
-            this.num1 = e.target.value;
-            this.num2 = max - e.target.value;
->>>>>>> bcaf53dd93bbbbbeeeb79f4fd9280c25ab226948
          })
       },
       handleInput2(max,e) {

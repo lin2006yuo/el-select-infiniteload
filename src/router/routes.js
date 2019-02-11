@@ -113,6 +113,12 @@ const routes = [
         cname: 'vnode',
         name: 'vnode',
         component: () => import('@/views/vnode')
+    },
+    {
+        path: '/swiper',
+        cname: 'swiper',
+        name: 'swiper',
+        component: () => import('@/views/swiper')
     }
 ]
 

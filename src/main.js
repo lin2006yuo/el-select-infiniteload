@@ -18,6 +18,11 @@ import SearchField from "./directive/search-field";
 import "./iconfont/iconfont.css";
 // plugin
 import VueLoading from "@/plugin/loading";
+//swiper
+import 'swiper/dist/css/swiper.css'
+//typedjs
+import 'vue-typed-js/dist/vue-typed-js.css'
+
 
 Vue.use(VueLoading);
 Vue.use(Directive);
